@@ -1,0 +1,18 @@
+.f-slider.multi-- {
+    .f-slider {
+        &__ctn{
+            max-width: 1500px;
+        }
+        &__navigation {
+            margin-bottom: 55px;
+        }
+    }
+    .swiper-wrapper {
+        height: auto;
+        align-items: center;
+    }
+    .swiper-slide {
+        width: auto;
+        max-width: 360px;
+    }
+}

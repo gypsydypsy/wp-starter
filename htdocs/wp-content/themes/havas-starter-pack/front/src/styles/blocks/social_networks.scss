@@ -1,0 +1,8 @@
+.f-social{
+    &__list{
+        @include flex(center, center, row, wrap);
+        @include m1024{
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+.f-images{
+    &__list{
+        &[data-colcount="2"]{
+            @include flex(flex-start, center, row, wrap);
+            margin: -20px;
+            >*{
+                width: calc(50% - 40px);
+                margin: 20px;
+            }
+        }
+    }
+    li{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    figure, .figure{
+        width: 100%;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

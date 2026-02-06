@@ -1,0 +1,141 @@
+// Global
+
+.app {
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: $fontText;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: $black;
+    @include m767 {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+.main{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+// Titles
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $fontTitle;
+    font-weight: 800;
+}
+
+.h1 {
+    font-size: 60px;
+    @include m767 {
+        font-size: 43px;
+    }
+}
+
+.h2 {
+    margin-bottom: 30px;
+    font-size: 50px;
+    &:not(:first-child) {
+        margin-top: 50px;
+    }
+    @include m767 {
+        font-size: 35px;
+    }
+}
+
+.h3 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    &:not(:first-child) {
+        margin-top: 30px;
+    }
+    @include m767 {
+        font-size: 25px;
+    }
+}
+
+.h4 {
+    font-size: 25px;
+    @include m767 {
+        font-size: 20px;
+    }
+}
+
+.h5 {
+    font-size: 20px;
+    @include m767 {
+        font-size: 18px;
+    }
+}
+
+.h6 {
+    font-size: 18px;
+    @include m767 {
+        font-size: 16px;
+    }
+}
+
+h1 {
+    @extend .h1;
+}
+
+h2 {
+    @extend .h2;
+}
+
+h3 {
+    @extend .h3;
+}
+
+h4 {
+    @extend .h4;
+}
+
+h5 {
+    @extend .h5;
+}
+
+h6 {
+    @extend .h6;
+}
+
+// Container
+
+.container {
+    width: calc(100% - 60px);
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    &.medium-- {
+        max-width: 960px;
+    }
+    &.small--{
+        max-width: 760px;
+    }
+}
+
+// Flexibles
+
+.f {
+    margin-top: 85px;
+    margin-bottom: 85px;
+    &[data-bg]:not([data-bg="blanc"]):not([data-bg=""]){
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+    &[data-bg="gris"]{
+        background-color: #f8f8f8;
+    }
+}
+
+// Spacer wysiwyg
+.spacer {
+  height: 2em;
+}
+
+@include m767 {
+  .spacer {
+    height: 2.2em;
+  }
+}

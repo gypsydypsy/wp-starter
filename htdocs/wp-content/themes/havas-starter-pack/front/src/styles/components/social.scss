@@ -1,0 +1,52 @@
+.c-social{
+    @include flex(flex-start, center, row, wrap);
+    margin-left: -37px;
+    margin-right: -37px;
+    @include m1024{
+        margin-left: -18px;
+        margin-right: -18px;
+    }
+    >*{
+        margin-left: 37px;
+        margin-right: 37px;
+        @include m1024{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .icon-instagram,
+    .icon-facebook,
+    .icon-linkedin,
+    .icon-tiktok,
+    .icon-whatsapp{
+        font-size: 32px;
+    }
+    .icon-twitter,
+    .icon-youtube{
+        font-size: 24px;
+    }
+
+
+
+    li{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        @include m1024{
+            width: 25%;
+            max-width: 25%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            flex: 0 1 25%;
+            text-align: center;
+        }
+        a{
+            @include m1025{
+                transition: color .4s ease-in-out;
+                &:hover{
+                    color:rgba($black, .6);
+                }
+            }
+        }
+    }
+}

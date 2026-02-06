@@ -1,0 +1,42 @@
+.f-press{
+    &__ctn{
+        &:not(:first-child){
+            margin-top: 45px;
+        }
+        ul{
+            margin-top: 30px;
+        }
+        &-item{
+            @include flex(space-between, flex-end);
+            padding-bottom: 12px;
+            border-bottom: 2px solid $black;
+            font-family: $fontText;
+            font-weight: 500;
+            @include m991{
+                display: block;
+            }
+            &+&{
+                margin-top: 19px;
+            }
+            >div:first-child{
+                padding-right: 30px;
+                padding-bottom: 3px;
+                @include m991{
+                    padding-right: 0;
+                    padding-bottom: 15px;
+                }
+            }
+            &-date{
+                font-size: 16px;
+                line-height: 1.44;
+                color: #969696;
+            }
+            &-title{
+
+                font-size: 20px;
+                line-height: 1.4;
+                color: $black;
+            }
+        }
+    }
+}

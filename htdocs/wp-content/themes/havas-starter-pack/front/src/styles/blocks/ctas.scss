@@ -1,0 +1,17 @@
+.f-ctas{
+    &__ctn{
+        @include flex(center, center, row, wrap);
+        margin: -20px;
+        >*{
+            margin: 20px;
+        }
+        @include m768{
+            &.left, &.gauche{
+                justify-content: flex-start;
+            }
+            &.right, &.droite{
+                justify-content: flex-end;
+            }
+        }
+    }
+}

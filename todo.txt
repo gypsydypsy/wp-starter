@@ -1,0 +1,10 @@
+=> Back
+<?php
+if ( post_password_required() ) {
+    echo get_the_password_form();
+    return;
+}
+?>
+
+=> Front
+ gestion du form en cas de protection mot de passe

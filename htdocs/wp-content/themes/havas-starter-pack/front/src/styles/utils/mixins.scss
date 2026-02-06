@@ -1,0 +1,298 @@
+/*  -------------------------------------------------------
+    ------------------->>> MIXINS <<<----------------------
+    -------------------------------------------------------  */
+
+// Flexbox
+@mixin flex($justifyContent:space-between, $alignItems:initial, $flexDirection:row, $wrap:nowrap) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-direction: $flexDirection;
+    flex-wrap: $wrap;
+}
+
+@mixin space($i) {
+    margin-left: -#{$i}px;
+    margin-right: -#{$i}px;
+    > * {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+    }
+}
+
+@mixin flexGrow($integer) {
+    flex: $integer;
+}
+
+@mixin flexWidth($integer) {
+    width: $integer;
+    min-width: $integer;
+    max-width: $integer;
+    flex: 0 1 $integer;
+}
+
+// Clearfix
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Gradients
+@mixin gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+    @if $orientation == 'vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+
+}
+
+/* Usage
+@include gradient(#07c, #06f, vertical);
+*/
+
+// Vertical align
+@mixin ghostVerticalAlign() {
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: .1px;
+    }
+
+}
+
+// Skew
+@mixin skew($skew) {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transform: skew($skew) translateZ(0);
+}
+
+@mixin skewX($x) {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transform: skewX($x) translateZ(0);
+}
+
+@mixin skewY($y) {
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    transform: skewY($y) translateZ(0);
+}
+
+// Placeholder
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &:-moz-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+
+}
+
+/* Usage
+@include placeholder {
+  font-style:italic;
+  color: white;
+  font-weight:100;
+}*/
+
+// Size
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin square($size) {
+    @include size($size, $size);
+}
+
+// Nth child query quantity
+@mixin quantity-query($number, $comparison:'equal') {
+    $nth: '';
+
+    @if index(('greater' 'more' '>'), $comparison) {
+        $nth: 'n + #{$number}';
+    } @else if index(('less' 'fewer' '<'), $comparison) {
+        $nth: '-n + #{$number}';
+    } @else if index(('equal' 'same' '='), $comparison) {
+        $nth: $number;
+    } @else {
+        @warn "Sorry, that's an invalid $comparison value."
+    }
+
+    &:nth-last-child(#{$nth}):first-child {
+        &,
+        & ~ * {
+            @content;
+        }
+    }
+
+}
+
+@mixin qq-equal($number) {
+    @include quantity-query($number, equal) {
+        @content;
+    }
+}
+
+@mixin qq-greater($number) {
+    @include quantity-query($number, greater) {
+        @content;
+    }
+}
+
+@mixin qq-less($number) {
+    @include quantity-query($number, less) {
+        @content;
+    }
+}
+
+// Media queries
+
+@mixin m1279 {
+    @media screen and (max-width: 1279px) {
+        @content;
+    }
+}
+
+@mixin m1200 {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin m1199 {
+    @media screen and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin m1099 {
+    @media screen and (max-width: 1099px) {
+        @content;
+    }
+}
+
+@mixin m1025 {
+    @media screen and (min-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin m1024 {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin m768-1024 {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin m992-1199 {
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin m992 {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin m991 {
+    @media screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin m768-1099 {
+    @media screen and (min-width: 768px) and (max-width: 1099px) {
+        @content;
+    }
+}
+
+@mixin m768-991 {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin m768 {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin m767 {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin m639 {
+    @media screen and (max-width: 639px) {
+        @content;
+    }
+}
+
+@mixin m640-767 {
+    @media screen and (min-width: 640px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin m480-767 {
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin m480 {
+    @media screen and (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin m479 {
+    @media screen and (max-width: 479px) {
+        @content;
+    }
+}
+
+@mixin m375 {
+    @media screen and (min-width: 375px) {
+        @content;
+    }
+}
+
+@mixin m374 {
+    @media screen and (max-width: 374px) {
+        @content;
+    }
+}

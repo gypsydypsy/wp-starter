@@ -1,0 +1,13 @@
+/htdocs/.htaccess
+/htdocs/wp-config.php
+.idea/
+/htdocs/wp-content/uploads/
+/htdocs/wp-content/debug.log
+.env
+/htdocs/df-wp-config-pages-generator/uploads/
+/htdocs/license.txt
+/htdocs/readme.html
+/htdocs/wp-config-sample.php
+/htdocs/wp-content/themes/havas-starter-pack/front/.lighthouseci
+/vendor/
+htdocs/wp-content/themes/havas-starter-pack/dist

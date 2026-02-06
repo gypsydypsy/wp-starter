@@ -1,0 +1,64 @@
+{
+    "key": "group_62568dee8d12b",
+    "title": "Block Réseaux sociaux",
+    "fields": [
+        {
+            "key": "field_62568dee926a2",
+            "label": "Masquer ce bloc en front office ?",
+            "name": "masquer_ce_bloc_en_front_office",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_62568dee926aa",
+            "label": "Titre",
+            "name": "titre_block",
+            "type": "text",
+            "instructions": "L'ordre des réseaux sociaux dépend de celui indiqué dans Thème Settings dans le menu à gauche. Ce dernier vous permet d'y renseigner les liens de vos réseaux sociaux et d'indiquer leur ordre d'apparition.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/reseaux-sociaux"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1653990194
+}

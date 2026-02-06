@@ -1,0 +1,23 @@
+.f-wysiwyg {
+    &__column {
+        &[data-colcount="2"],
+        &[data-colcount="3"]{
+            @include flex(initial, initial);
+            margin-left: -20px;
+            margin-right: -20px;
+            @include m767{
+                display: block;
+            }
+            >*{
+                flex: 1 1 0;
+                margin-left: 20px;
+                margin-right: 20px;
+                &:not(:first-child){
+                    @include m767{
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+.env
+.password.env
+registry-password.txt
+docker/nginx/ssl/havasdigitalfactory.net/*
+docker/database/db_data
+docker/nginx/sites-enabled/*

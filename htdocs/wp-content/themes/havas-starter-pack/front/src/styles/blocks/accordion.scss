@@ -1,0 +1,92 @@
+.toggle-button {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    &.active {
+        &:after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+    &:after {
+        content: "\e904";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 35px;
+        transform: translateY(-50%);
+        @include icomoon();
+        font-size: 14px;
+        color: $white;
+    }
+}
+
+.toggle-button + .toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+    &.active {
+        max-height: 1200px;
+        transition: max-height .9s ease-in-out;
+    }
+    > *:first-child {
+        padding-top: 20px;
+    }
+}
+
+.f-accordion {
+    &__list {
+        &-item {
+            overflow: hidden;
+            max-height: 1200px;
+            transition: max-height .35s ease-in-out;
+            &.hidden{
+                max-height: 0;
+                transition: max-height .35s ease-in-out;
+            }
+            & + & {
+                margin-top: 15px;
+            }
+            &-title {
+                padding: 40px 70px 40px 35px;
+                background-color: $black;
+                font-family: $fontText;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: bold;
+                color: $white;
+            }
+            &-content {
+                > div {
+                    padding: 35px;
+                    border: 1px solid $black;
+                }
+            }
+        }
+        &-loadmore {
+            margin-top: 34px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity .35s ease-in-out, max-height 0s linear .35s;
+            text-align: center;
+            &.active{
+                opacity: 1;
+                max-height: 70px;
+                transition: opacity .35s ease-in-out .35s, max-height 0s linear;
+            }
+            button {
+                cursor:pointer;
+                display: inline-block;
+                font-size: 34px;
+                @include m1025 {
+                    transition: transform .3s ease-in-out;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}

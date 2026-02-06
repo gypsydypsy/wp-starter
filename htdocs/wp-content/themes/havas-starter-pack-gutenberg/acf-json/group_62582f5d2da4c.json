@@ -1,0 +1,265 @@
+{
+    "key": "group_62582f5d2da4c",
+    "title": "Block Liste dynamique",
+    "fields": [
+        {
+            "key": "field_62582f5d3f370",
+            "label": "Masquer ce bloc en front office ?",
+            "name": "masquer_ce_bloc_en_front_office",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_62582f5d3f3dc",
+            "label": "Titre",
+            "name": "titre_block",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
+        },
+        {
+            "key": "field_62582f8a9dd5b",
+            "label": "Type de liste",
+            "name": "type_de_liste",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "auto": "Automatique",
+                "manuel": "Manuel"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "translations": "copy_once",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_625830799dd5d",
+            "label": "Automatique",
+            "name": "automatique",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62582f8a9dd5b",
+                        "operator": "==",
+                        "value": "auto"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6258302a9dd5c",
+                    "label": "Type de contenu",
+                    "name": "type_de_contenu",
+                    "type": "checkbox",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "actualite": "Actualité",
+                        "portrait": "Portrait"
+                    },
+                    "allow_custom": 0,
+                    "default_value": [],
+                    "layout": "vertical",
+                    "toggle": 1,
+                    "return_format": "value",
+                    "translations": "copy_once",
+                    "save_custom": 0
+                },
+                {
+                    "key": "field_625830d49dd5e",
+                    "label": "Trier par",
+                    "name": "trier_par",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ID": "Identifiant",
+                        "title": "Titre",
+                        "date": "Date de publication",
+                        "rand": "Hasard"
+                    },
+                    "allow_null": 0,
+                    "default_value": "title",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "translations": "copy_once"
+                },
+                {
+                    "key": "field_625832119dd5f",
+                    "label": "Ordre",
+                    "name": "ordre",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "Ascendant",
+                        "DESC": "Descendant"
+                    },
+                    "allow_null": 0,
+                    "default_value": "ASC",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "translations": "copy_once"
+                },
+                {
+                    "key": "field_6258325d9dd60",
+                    "label": "Nombre d'items à afficher",
+                    "name": "nombre_items_a_afficher",
+                    "type": "number",
+                    "instructions": "-1 pour afficher tous les items disponibles",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": -1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": -1,
+                    "max": "",
+                    "step": "",
+                    "translations": "copy_once"
+                }
+            ]
+        },
+        {
+            "key": "field_625832ca9dd61",
+            "label": "Manuel",
+            "name": "manuel",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62582f8a9dd5b",
+                        "operator": "==",
+                        "value": "manuel"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6258369f9dd62",
+                    "label": "Sélection",
+                    "name": "selection",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "actualite",
+                        "portrait"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search",
+                        "post_type",
+                        "taxonomy"
+                    ],
+                    "elements": "",
+                    "min": 1,
+                    "max": "",
+                    "return_format": "object",
+                    "translations": "copy_once"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/liste-dynamique"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1650011963
+}

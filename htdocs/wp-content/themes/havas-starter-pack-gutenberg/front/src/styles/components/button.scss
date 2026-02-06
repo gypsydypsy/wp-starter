@@ -1,0 +1,60 @@
+@mixin button($backgroundColor: $black, $backgroundColorSecond: transparent) {
+    background-color: $backgroundColor;
+    border: 2px solid $backgroundColor;
+    outline: 0 !important;
+    @include m1025 {
+        transition: all .4s ease-in-out;
+        &:hover, &:focus-within {
+            color: $backgroundColor;
+            background-color: $backgroundColorSecond;
+        }
+    }
+}
+
+.c-button {
+    display: block;
+    font-family: $fontText;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    text-underline-position: under;
+
+    @include m1025 {
+        transition: opacity .4s ease-in-out, text-decoration-color .4s ease-in-out;
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    &:not(.bg--):not(.download--):not(.arrow--){
+        text-decoration: underline;
+    }
+
+    &.bg-- {
+        display: inline-block;
+        padding: 16px 32px 14px;
+        border-radius: 33px;
+        font-size: 18px;
+        text-align: center;
+        color: $white;
+        @include button();
+    }
+    &.download-- {
+        &:before {
+            position: relative;
+            top: 4px;
+            content: "\e905";
+            margin-right: 15px;
+            @include icomoon();
+            font-size: 26px;
+        }
+    }
+    &.arrow-- {
+        &:before {
+            content: "\e901";
+            margin-right: 10px;
+            @include icomoon();
+            font-size: 21px;
+        }
+    }
+}

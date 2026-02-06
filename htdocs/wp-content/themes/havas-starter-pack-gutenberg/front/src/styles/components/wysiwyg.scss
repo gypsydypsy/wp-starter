@@ -1,0 +1,43 @@
+.c-wysiwyg {
+    p + p, li + li, p + ul, p + ol, ol + p, ul + p, ol + ul, ul + ol {
+        margin-top: 15px;
+    }
+    ul {
+        li {
+            padding-left: 24px;
+            &:before {
+                position: relative;
+                top: 8px;
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: $black;
+                border-radius: 50%;
+                float: left;
+                margin-left: -24px;
+            }
+        }
+    }
+    ol {
+        list-style: auto;
+        list-style-position: inside;
+    }
+    a {
+        &:not(.c-button) {
+            font-style: italic;
+            text-decoration: underline;
+            @include m1025 {
+                transition: text-decoration-color .4s ease-in-out;
+                &:hover {
+                    text-decoration-color: transparent;
+                }
+            }
+        }
+    }
+    p + p > .c-button {
+        margin-top: 20px;
+    }
+    p + p > a:only-child {
+        @extend .c-button;
+    }
+}

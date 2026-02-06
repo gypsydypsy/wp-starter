@@ -1,0 +1,128 @@
+.c-video {
+  figure,
+  .figure {
+    display: block;
+    figcaption {
+      margin-top: 10px;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.88;
+      text-align: left;
+    }
+  }
+
+  &__player {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-bottom: 56.25%;
+    }
+
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    video[poster] {
+      object-fit: cover;
+    }
+
+    &-poster {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: opacity 0.4s ease-in-out;
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+      }
+      &-play {
+        display: block;
+        width: 145px;
+        height: 145px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        border-radius: 50%;
+        font-size: 35px;
+        transition: transform 0.4s ease-in-out;
+        @include m1025 {
+          &:hover {
+            transform: translate(-50%, -50%) scale(0.9);
+            i {
+              transform: scale(1.4);
+            }
+          }
+        }
+        [class^="icon-"],
+        [class*=" icon-"] {
+          display: inline-block;
+          position: relative;
+          top: 3px;
+          left: 3px;
+          transition: transform 0.4s ease-in-out;
+        }
+      }
+
+      & + .dailymotion_player,
+      & + .vimeo_player,
+      & + .youtube_player {
+        visibility: hidden;
+      }
+
+      &.hidden + .dailymotion_player,
+      &.hidden + .vimeo_player,
+      &.hidden + .youtube_player {
+        visibility: visible;
+      }
+    }
+
+    &-cookies {
+      .tac_activate {
+        @include flex(center, center, column);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba($white, 0.75);
+        font-size: 15px;
+        color: $black;
+        > * {
+          display: block;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .post_text {
+          margin-top: 12px;
+        }
+        button {
+          margin-top: 20px;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &__transcript {
+    button {
+      width: fit-content;
+      margin-left: auto;
+      margin-bottom: 15px; 
+      font-size: 16px;
+      text-decoration: underline;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

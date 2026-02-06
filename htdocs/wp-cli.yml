@@ -1,0 +1,8 @@
+
+# Configuration de wpcli
+# Voir http://wp-cli.org/config/
+
+# Les modules apaches à charger
+apache_modules:
+	- mod_rewrite
+

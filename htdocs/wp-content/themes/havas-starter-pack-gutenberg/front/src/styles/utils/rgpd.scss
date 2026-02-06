@@ -1,0 +1,1352 @@
+$mainColor: #f36495;
+$secondaryColor: #3f4f5f;
+$neutralColor: #6f6f6f;
+$successColor: #1B870B;
+$errorColor: #9C1A1A;
+$warningColor: #FBDA26;
+$blackColor: #000;
+$whiteColor: #fff;
+
+$fontText: 'Arial', sans-serif;
+$fontTitle: 'Trebuchet MS', sans-serif;
+
+.modal-open {
+    overflow: hidden;
+    height: 100%;
+}
+
+#contentWrapper {
+    display: unset;
+}
+
+/***
+* Reset CSS
+*/
+
+#tarteaucitronRoot div,
+#tarteaucitronRoot span,
+#tarteaucitronRoot applet,
+#tarteaucitronRoot object,
+#tarteaucitronRoot iframe,
+#tarteaucitronRoot h1,
+#tarteaucitronRoot h2,
+#tarteaucitronRoot h3,
+#tarteaucitronRoot h4,
+#tarteaucitronRoot h5,
+#tarteaucitronRoot h6,
+#tarteaucitronRoot p,
+#tarteaucitronRoot blockquote,
+#tarteaucitronRoot pre,
+#tarteaucitronRoot a,
+#tarteaucitronRoot abbr,
+#tarteaucitronRoot acronym,
+#tarteaucitronRoot address,
+#tarteaucitronRoot big,
+#tarteaucitronRoot cite,
+#tarteaucitronRoot code,
+#tarteaucitronRoot del,
+#tarteaucitronRoot dfn,
+#tarteaucitronRoot em,
+#tarteaucitronRoot img,
+#tarteaucitronRoot ins,
+#tarteaucitronRoot kbd,
+#tarteaucitronRoot q,
+#tarteaucitronRoot s,
+#tarteaucitronRoot samp,
+#tarteaucitronRoot small,
+#tarteaucitronRoot strike,
+#tarteaucitronRoot strong,
+#tarteaucitronRoot sub,
+#tarteaucitronRoot sup,
+#tarteaucitronRoot tt,
+#tarteaucitronRoot var,
+#tarteaucitronRoot b,
+#tarteaucitronRoot u,
+#tarteaucitronRoot i,
+#tarteaucitronRoot center,
+#tarteaucitronRoot dl,
+#tarteaucitronRoot dt,
+#tarteaucitronRoot dd,
+#tarteaucitronRoot ol,
+#tarteaucitronRoot ul,
+#tarteaucitronRoot li,
+#tarteaucitronRoot fieldset,
+#tarteaucitronRoot form,
+#tarteaucitronRoot label,
+#tarteaucitronRoot legend,
+#tarteaucitronRoot table,
+#tarteaucitronRoot caption,
+#tarteaucitronRoot tbody,
+#tarteaucitronRoot tfoot,
+#tarteaucitronRoot thead,
+#tarteaucitronRoot tr,
+#tarteaucitronRoot th,
+#tarteaucitronRoot td,
+#tarteaucitronRoot article,
+#tarteaucitronRoot aside,
+#tarteaucitronRoot canvas,
+#tarteaucitronRoot details,
+#tarteaucitronRoot embed,
+#tarteaucitronRoot figure,
+#tarteaucitronRoot figcaption,
+#tarteaucitronRoot footer,
+#tarteaucitronRoot header,
+#tarteaucitronRoot hgroup,
+#tarteaucitronRoot menu,
+#tarteaucitronRoot nav,
+#tarteaucitronRoot output,
+#tarteaucitronRoot ruby,
+#tarteaucitronRoot section,
+#tarteaucitronRoot summary,
+#tarteaucitronRoot time,
+#tarteaucitronRoot mark,
+#tarteaucitronRoot audio,
+#tarteaucitronRoot video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    /*background: initial;*/
+    text-align: initial;
+    text-shadow: initial;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+#tarteaucitronRoot article,
+#tarteaucitronRoot aside,
+#tarteaucitronRoot details,
+#tarteaucitronRoot figcaption,
+#tarteaucitronRoot figure,
+#tarteaucitronRoot footer,
+#tarteaucitronRoot header,
+#tarteaucitronRoot hgroup,
+#tarteaucitronRoot menu,
+#tarteaucitronRoot nav,
+#tarteaucitronRoot section {
+    display: block;
+}
+
+#tarteaucitronRoot ol,
+#tarteaucitronRoot ul {
+    list-style: none;
+}
+
+#tarteaucitronRoot blockquote,
+#tarteaucitronRoot q {
+    quotes: none;
+}
+
+#tarteaucitronRoot blockquote:before,
+#tarteaucitronRoot blockquote:after,
+#tarteaucitronRoot q:before,
+#tarteaucitronRoot q:after {
+    content: '';
+    content: none;
+}
+
+#tarteaucitronRoot table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#tarteaucitronRoot a:focus,
+#tarteaucitronRoot button:focus {
+
+}
+
+/***
+ * Better scroll management
+ */
+
+div#tarteaucitronMainLineOffset {
+    margin-top: 0 !important;
+}
+
+div#tarteaucitronServices {
+
+}
+
+#tarteaucitronServices::-webkit-scrollbar {
+    width: 6px;
+}
+
+#tarteaucitronServices::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba($black, .2);
+}
+
+#tarteaucitronServices::-webkit-scrollbar-thumb {
+    background-color: $mainColor;
+    outline: 0 solid $mainColor;
+    border-radius: 12px;
+}
+
+div#tarteaucitronServicesCtn {
+    padding: 50px 30px 45px;
+    background-color: $whiteColor;
+    border-radius: 22px;
+    border: solid 1px $neutralColor;
+    box-sizing: border-box;
+    @include m767 {
+        padding: 35px 20px 25px;
+    }
+}
+
+div#tarteaucitronServices {
+    box-shadow: none;
+    padding: 20px 25px 25px;
+    @include m767 {
+        padding: 0 25px 0 0;
+    }
+
+}
+
+/***
+ * Responsive layout for the control panel
+ */
+
+@media screen and (max-width: 479px) {
+    #tarteaucitron .tarteaucitronLine .tarteaucitronName {
+        width: 90% !important;
+    }
+    #tarteaucitron .tarteaucitronLine .tarteaucitronAsk {
+        float: left !important;
+        margin: 10px 15px 5px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer,
+    #tarteaucitron {
+        //background: #fff;
+        //border: 0 !important;
+        //bottom: 0 !important;
+        //height: 100% !important;
+        //left: 0 !important;
+        //margin: 0 !important;
+        //max-height: 100% !important;
+        //max-width: 100% !important;
+        //top: 0 !important;
+        //width: 100% !important;
+    }
+    #tarteaucitron .tarteaucitronBorder {
+        border: 0 !important;
+    }
+    #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList {
+        border: 0 !important;
+    }
+    #tarteaucitron #tarteaucitronServices .tarteaucitronTitle {
+        text-align: left !important;
+    }
+    .tarteaucitronName .tarteaucitronH2 {
+        max-width: 80%;
+    }
+    #tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronAsk {
+        text-align: center !important;
+    }
+    #tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronAsk button {
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #tarteaucitron {
+        border: 0 !important;
+        left: 0 !important;
+        margin: 0 5% !important;
+        max-height: 80% !important;
+        width: 90% !important;
+    }
+}
+
+/***
+ * Common value
+ */
+
+#tarteaucitron * {
+    zoom: 1;
+}
+
+#tarteaucitronRoot div#tarteaucitron {
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#tarteaucitronRoot button#tarteaucitronBack {
+    background: rgba($neutralColor, .8);
+
+}
+
+#tarteaucitron .clear {
+    clear: both;
+}
+
+#tarteaucitron a {
+    color: $blackColor;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#tarteaucitronRoot button {
+    background: transparent;
+    border: 0;
+}
+
+#tarteaucitronAlertBig strong,
+#tarteaucitronAlertSmall strong,
+#tarteaucitronAlertBig a,
+#tarteaucitronAlertSmall a {
+    color: $secondaryColor;
+}
+
+#tarteaucitron strong {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#tarteaucitron ul {
+    padding: 0;
+}
+
+#tarteaucitron .tarteaucitronH1,
+#tarteaucitron .tarteaucitronH2,
+#tarteaucitron .tarteaucitronH3,
+#tarteaucitron .tarteaucitronH4,
+#tarteaucitron .tarteaucitronH5,
+#tarteaucitron .tarteaucitronH6 {
+    display: block;
+}
+
+.cookie-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/***
+ * Root div added just before </body>
+ */
+
+#tarteaucitronRoot {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+#tarteaucitronRoot * {
+    box-sizing: initial;
+    color: $blackColor;
+    font-family: $fontText !important;
+    font-size: 14px;
+    line-height: normal;
+    vertical-align: initial;
+}
+
+#tarteaucitronRoot .tarteaucitronH1 {
+    margin: 0 0 20px;
+    font-size: 30px;
+    color: $blackColor;
+    font-family: $fontTitle !important;
+    line-height: 1.27;
+}
+
+#tarteaucitronRoot .tarteaucitronH2 {
+    font-size: 20px !important;
+    color: $blackColor;
+    font-weight: normal !important;
+    font-family: $fontTitle !important;
+}
+
+#tarteaucitronCookiesNumberBis.tarteaucitronH2 {
+    margin-left: 0;
+}
+
+/***
+ * Control panel
+ */
+
+#tarteaucitronBack {
+    background: $blackColor;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: .7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2147483646;
+}
+
+#tarteaucitron {
+    display: none;
+    max-height: 80%;
+    left: 50%;
+    margin: 0 auto 0 -430px;
+    padding: 0;
+    position: fixed;
+    top: 6%;
+    width: 1020px;
+    z-index: 2147483647;
+    @include m991 {
+        width: calc(100% - 20px) !important;
+        background: transparent;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+#tarteaucitron .tarteaucitronBorder {
+    background: $whiteColor;
+    margin-top: 15px;
+    border-top: 1px solid $neutralColor !important;
+    height: auto;
+    overflow: auto;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronClosePanelCookie,
+#tarteaucitron #tarteaucitronClosePanel {
+    background: $whiteColor;
+    color: $secondaryColor;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 4px 0 4px 10px;
+    position: absolute;
+    right: 18px;
+    text-align: center;
+    top: 18px;
+    z-index: 99;
+    white-space: nowrap;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    outline: none;
+    @include m767 {
+        right: 9px;
+        top: 9px;
+    }
+}
+
+/*#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronClosePanelCookie:hover,
+#tarteaucitron #tarteaucitronClosePanel:hover {
+    background: rgba(38, 47, 50, .05);;
+}*/
+
+#tarteaucitron #tarteaucitronDisclaimer {
+    color: $neutralColor;
+    font-size: 12px;
+    margin: 15px auto 0;
+    width: 80%;
+}
+
+.tarteaucitronSelfLink,
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronHidden,
+#tarteaucitron #tarteaucitronServices .tarteaucitronHidden {
+    background: #fff
+}
+
+a.tarteaucitronSelfLink {
+    text-align: center !important;
+    display: block;
+    padding: 7px !important;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronHidden {
+    display: none;
+    position: relative;
+}
+
+#tarteaucitron #tarteaucitronServices li.tarteaucitronHidden {
+    border-bottom: 1px solid $neutralColor !important;
+}
+
+#tarteaucitronCookiesList .tarteaucitronH3.tarteaucitronTitle {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronTitle,
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle button,
+#tarteaucitron #tarteaucitronInfo,
+#tarteaucitron #tarteaucitronServices .tarteaucitronDetails {
+    color: $blackColor;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: normal;
+    /* margin: 20px 0 0;
+    padding: 5px 20px; */
+    text-align: left;
+    width: auto;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName a,
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle a {
+    color: $secondaryColor;
+    font-weight: 500;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName a:hover,
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle a:hover {
+    text-decoration: none !important;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName a {
+    font-size: 22px;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle a {
+    font-size: 14px;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronTitle {
+    padding: 5px 10px;
+    margin: 0;
+}
+
+#tarteaucitron #tarteaucitronInfo,
+#tarteaucitron #tarteaucitronServices .tarteaucitronDetails {
+    color: $blackColor;
+    display: block !important;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: normal;
+    margin-top: 0;
+    padding: 0 0 30px 0 !important;
+    width: 100%;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronDetails {
+    max-width: 650px;
+}
+
+#tarteaucitron #tarteaucitronInfo a {
+    color: $secondaryColor;
+    text-decoration: underline;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine:hover {
+    background: $whiteColor;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine {
+    background: $whiteColor;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 35px;
+    width: 100%;
+    /* border-bottom: 1px solid #aaa; */
+}
+
+#tarteaucitron .tarteaucitronBorder .tarteaucitronLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include m767 {
+        display: block;
+    }
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine {
+    margin-bottom: 0;
+    margin-top: 21px;
+    position: relative;
+    color: $secondaryColor;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine:hover {
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName {
+    margin-left: 15px;
+    margin-top: 2px;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName button {
+    color: $secondaryColor;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronAsk {
+    margin-top: 0 !important;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronName {
+    display: inline-block;
+    float: left;
+    /* margin-left: 10px; */
+    text-align: left;
+    width: 50%;
+
+    a {
+        display: block;
+        color: $blackColor;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.33;
+        transition: transform .35s ease-in-out;
+        text-decoration: none;
+        @include m767 {
+            font-size: 15px;
+        }
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 12px;
+            font-size: 12px;
+            color: $mainColor;
+            content: "\e90f";
+            @include icomoon();
+            transition: transform .35s ease-in-out;
+        }
+        &:hover {
+            @include m1025 {
+                transform: translateX(6px);
+                &:before {
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+}
+
+/*
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronName a:hover {
+    text-decoration: underline;
+}*/
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronAsk {
+    display: inline-block;
+    float: right;
+    margin: 7px 0 0;
+    text-align: right;
+    @include m767 {
+        margin-top: 18px;
+    }
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronAsk .tarteaucitronAllow,
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronAsk .tarteaucitronDeny,
+.tac_activate .tarteaucitronAllow {
+    border-radius: 4px;
+    color: $secondaryColor;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    border: 0;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronName .tarteaucitronListCookies {
+    color: $secondaryColor;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#tarteaucitronRoot #tarteaucitron .tarteaucitronH3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $blackColor;
+    font-family: $fontTitle !important;
+    font-weight: normal;
+}
+
+#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronName {
+    width: auto !important;
+    margin-left: 0 !important;
+    font-size: 14px;
+}
+
+/***
+ * Big alert
+ */
+
+.tarteaucitronAlertBigTop {
+    top: 0;
+}
+
+.tarteaucitronAlertBigBottom {
+    bottom: 0;
+}
+
+#tarteaucitronRoot #tarteaucitronAlertBig {
+    display: none;
+    z-index: 2147483645;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    max-width: 790px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    padding: 32px 30px 25px;
+    background-color: $whiteColor;
+    border: solid 1px $neutralColor;
+    border-radius: 15px;
+    color: $blackColor;
+    font-size: 15px !important;
+    text-align: right;
+
+    @include m991 {
+        right: auto;
+        left: 50%;
+        padding-top: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
+        transform: translateX(-50%);
+    }
+
+    span {
+        display: block;
+        margin-bottom: 20px;
+        text-align: left;
+        @include m991 {
+            text-align: center;
+        }
+    }
+}
+
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
+    font-size: 15px;
+    font-family: $fontTitle !important;
+    line-height: 1.4;
+    color: $blackColor;
+}
+
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
+    font-weight: 700;
+    padding-bottom: 0;
+}
+
+#tarteaucitronAlertBig #tarteaucitronPrivacyUrl {
+    cursor: pointer;
+}
+
+#tarteaucitronAlertBig #tarteaucitronCloseAlert,
+#tarteaucitronAlertBig #tarteaucitronPersonalize,
+#tarteaucitronAlertBig #tarteaucitronAllDenied,
+#tarteaucitron #tarteaucitronPrivacyUrl {
+    @include button($mainColor);
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 18px;
+    padding: 7px 23px 8px;
+    border-radius: 19px;
+    font-size: 17px;
+    text-align: center;
+    color: $whiteColor;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: $fontText !important;
+    transition: all .35s ease-in-out;
+    @include m768-1099 {
+        font-size: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+#tarteaucitronAlertBig #tarteaucitronCloseAlert {
+    @include button($mainColor);
+}
+
+/***
+ * Small alert
+ */
+
+.tarteaucitronAlertSmallTop,
+.tarteaucitronAlertSmallBottom {
+    bottom: 0;
+}
+
+#tarteaucitronAlertSmall {
+    background: $secondaryColor;
+    display: none;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: auto;
+    z-index: 2147483646;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager {
+    color: $secondaryColor;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px !important;
+    padding: 8px 10px 8px;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager:hover {
+    background: rgba($whiteColor, .05);
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot {
+    background-color: $neutralColor;
+    border-radius: 5px;
+    display: block;
+    height: 8px;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotGreen,
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotYellow,
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotRed {
+    display: block;
+    float: left;
+    height: 100%;
+    width: 0;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotGreen {
+    background-color: $successColor;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotYellow {
+    background-color: $warningColor;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotRed {
+    background-color: $errorColor;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesNumber {
+    background: rgba($whiteColor, .2);
+    color: $secondaryColor;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 30px;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesNumber:hover {
+    background: rgba($whiteColor, .3);
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer {
+    display: none;
+    max-height: 70%;
+    max-width: 500px;
+    position: fixed;
+    right: 0;
+    width: 100%;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList {
+    background: $whiteColor;
+    border: 2px solid $neutralColor;
+    color: $neutralColor;
+    font-size: 11px;
+    height: auto;
+    overflow: auto;
+    text-align: left;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList strong {
+    color: $neutralColor;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesTitle {
+    background: $neutralColor;
+    margin-top: 21px;
+    padding: 13px 0 9px 13px;
+    text-align: left;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesTitle strong {
+    color: $neutralColor;
+    font-size: 16px;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain {
+    background: rgba($neutralColor, .1);
+    padding: 7px 5px 10px;
+    word-wrap: break-word;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain:hover {
+    background: rgba($neutralColor, .2);
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain a {
+    color: $secondaryColor;
+    text-decoration: none;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain .tarteaucitronCookiesListLeft {
+    display: inline-block;
+    width: 50%;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain .tarteaucitronCookiesListLeft a strong {
+    color: $mainColor;
+}
+
+#tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain .tarteaucitronCookiesListRight {
+    color: $neutralColor;
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 10%;
+    vertical-align: top;
+    width: 30%;
+}
+
+/***
+ * Fallback activate link
+ */
+
+.tac_activate {
+    background: $neutralColor;
+    color: $whiteColor;
+    display: table;
+    font-size: 12px;
+    height: 100%;
+    line-height: initial;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.tac_float {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tac_activate .tac_float strong {
+    color: $mainColor;
+}
+
+.tac_activate .tac_float .tarteaucitronAllow {
+    background-color: $successColor;
+    display: inline-block;
+}
+
+/***
+ * CSS for services
+ */
+
+ins.ferank-publicite,
+ins.adsbygoogle {
+    text-decoration: none;
+}
+
+div.amazon_product {
+    height: 240px;
+    width: 120px;
+}
+
+.tarteaucitronIsAllowed .tarteaucitronDeny {
+    opacity: .4 !important;
+}
+
+.tarteaucitronIsDenied .tarteaucitronAllow {
+    opacity: .4 !important;
+}
+
+.tarteaucitronIsAllowed .tarteaucitronAllow {
+    opacity: 1 !important;
+}
+
+.tarteaucitronIsDenied .tarteaucitronDeny {
+    opacity: 1 !important;
+}
+
+.tarteaucitronLine .tarteaucitronAllow,
+.tarteaucitronLine .tarteaucitronAllow {
+    opacity: .4;
+}
+
+#tarteaucitronRoot div#tarteaucitronInfo {
+    display: block !important;
+    position: initial !important;
+    padding: 0 0 64px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: $blackColor;
+    font-family: $fontText;
+    font-weight: normal;
+    border-bottom: solid 1px $neutralColor;
+}
+
+a.tarteaucitronSelfLink {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding-top: 13px !important;
+    display: block;
+    text-shadow: 0 0 14px $whiteColor;
+    text-transform: uppercase;
+}
+
+#tarteaucitronRoot .tarteaucitronMainLine .tarteaucitronH2 {
+    margin-top: 4px !important;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#tarteaucitronRoot #tarteaucitron .tarteaucitronMainLine .tarteaucitronName {
+    padding-top: 30px;
+}
+
+#tarteaucitronRoot #tarteaucitron .tarteaucitronMainLine .tarteaucitronAsk {
+    margin: 35px 0 20px 0 !important;
+}
+
+span.tarteaucitronTitle.tarteaucitronH3 {
+    margin-top: 12px !important;
+}
+
+/* custom radio bt */
+
+.tarteaucitronContainerRadio {
+    display: flex;
+    align-items: center
+}
+
+.tarteaucitronServiceInputCheckbox {
+    display: none;
+}
+
+.tarteaucitronServiceInputCheckbox,
+.tarteaucitronServiceInputCheckbox:after,
+.tarteaucitronServiceInputCheckbox:before,
+.tarteaucitronServiceInputCheckbox *,
+.tarteaucitronServiceInputCheckbox *:after,
+.tarteaucitronServiceInputCheckbox *:before,
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox {
+    box-sizing: border-box;
+}
+
+.tarteaucitronServiceInputCheckbox::-moz-selection,
+.tarteaucitronServiceInputCheckbox:after::-moz-selection,
+.tarteaucitronServiceInputCheckbox:before::-moz-selection,
+.tarteaucitronServiceInputCheckbox *::-moz-selection,
+.tarteaucitronServiceInputCheckbox *:after::-moz-selection,
+.tarteaucitronServiceInputCheckbox *:before::-moz-selection,
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox::-moz-selection {
+    background: none;
+}
+
+.tarteaucitronServiceInputCheckbox::selection,
+.tarteaucitronServiceInputCheckbox:after::selection,
+.tarteaucitronServiceInputCheckbox:before::selection,
+.tarteaucitronServiceInputCheckbox *::selection,
+.tarteaucitronServiceInputCheckbox *:after::selection,
+.tarteaucitronServiceInputCheckbox *:before::selection,
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox::selection {
+    background: none;
+}
+
+.tarteaucitronCheckBoxBt {
+    outline: 0;
+    display: block;
+    width: 40px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.tarteaucitronCheckBoxBt:after,
+.tarteaucitronCheckBoxBt:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+}
+
+.tarteaucitronCheckBoxBt:after {
+    left: 2px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+.tarteaucitronCheckBoxBt:before {
+    display: none;
+}
+
+.tarteaucitronServiceInputCheckbox:checked + .tarteaucitronLabelCheckBox .tarteaucitronCheckBoxBt:after {
+    left: calc(50% - 2px);
+}
+
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox .tarteaucitronCheckBoxBt {
+    background: #f0f0f0;
+    border-radius: 2em;
+    padding: 2px;
+    transition: all .4s ease;
+}
+
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox .tarteaucitronCheckBoxBt:after {
+    border-radius: 50%;
+    background: $whiteColor;
+    transition: all .2s ease;
+}
+
+.tarteaucitronServiceInputCheckbox + .tarteaucitronLabelCheckBox .tarteaucitronCheckBoxBt {
+    background: $mainColor;
+}
+
+.tarteaucitronServiceInputCheckbox:checked + .tarteaucitronLabelCheckBox .tarteaucitronCheckBoxBt {
+    background: $secondaryColor;
+}
+
+#tarteaucitronRoot .allowTxt,
+#tarteaucitronRoot .denyTxt {
+    margin-right: 10px;
+    display: block;
+    color: $errorColor;
+    font-size: 15px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+#tarteaucitronRoot .allowTxt {
+    display: none;
+    color: $successColor;
+}
+
+#tarteaucitronRoot .tarteaucitronServiceInputCheckbox:checked + .tarteaucitronLabelCheckBox .allowTxt {
+    display: block
+}
+
+#tarteaucitronRoot .tarteaucitronServiceInputCheckbox:checked + .tarteaucitronLabelCheckBox .denyTxt {
+    display: none
+}
+
+.tarteaucitronLabelCheckBox {
+    display: flex;
+    align-items: center;
+}
+
+.tarteaucitronLabelCheckBox:hover {
+    cursor: pointer
+}
+
+#tarteaucitronClosePanel:after {
+    content: "\0000D7";
+    font-size: 32px;
+    font-weight: 300;
+    width: 32px;
+    color: $blackColor;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: -1px;
+    outline: none;
+}
+
+#tarteaucitronRoot .tarteaucitronTitle {
+    background: transparent;
+    color: $blackColor;
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: $fontTitle !important;
+    margin: 0;
+    padding: 25px 0 20px;
+    text-align: left;
+    width: auto;
+}
+
+#tarteaucitronAlertButtons {
+    text-align: right !important;
+    @include m991 {
+        text-align: center !important;
+    }
+    button {
+        display: inline-block;
+        @include m991 {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    #tarteaucitronAlertButtons {
+        text-align: center;
+    }
+    #tarteaucitronRoot #tarteaucitronDisclaimerAlert {
+        margin: 0 0 15px 0;
+    }
+
+    #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
+    #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+    }
+
+    .tarteaucitronAlertBigTop {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+body {
+    #tarteaucitronRoot #tarteaucitronAlertBig {
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        max-width: initial;
+        border: none;
+        padding: 0;
+        background-color: rgba($blackColor, .8);
+        border-radius: 0;
+    }
+    #tarteaucitronAlertBigContent {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        max-width: 790px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        padding: 32px 30px 25px;
+        background-color: $whiteColor;
+        border: solid 1px $neutralColor;
+        border-radius: 15px;
+        color: $blackColor;
+        font-size: 15px !important;
+        text-align: right;
+    }
+}
+
+/***
+ * Icon
+ */
+.tarteaucitronIconBottomRight {
+    bottom: 0;
+    right: 0;
+}
+
+.tarteaucitronIconBottomLeft {
+    bottom: 0;
+    left: 0;
+}
+
+.tarteaucitronIconTopRight {
+    top: 0;
+    right: 0;
+}
+
+.tarteaucitronIconTopLeft {
+    top: 0;
+    left: 0;
+}
+
+.tarteaucitronIconTopLeft #tarteaucitronManager {
+    border-radius: 2px 7px 7px 2px;
+}
+
+.tarteaucitronIconTopRight #tarteaucitronManager {
+    border-radius: 7px 2px 2px 7px;
+}
+
+.tarteaucitronIconBottomLeft #tarteaucitronManager {
+    border-radius: 7px 7px 2px 2px;
+}
+
+.tarteaucitronIconBottomRight #tarteaucitronManager {
+    border-radius: 7px 7px 2px 2px;
+}
+
+#tarteaucitronIcon {
+    background: transparent;
+    position: fixed;
+    display: none;
+    width: auto;
+    z-index: 2147483646;
+}
+
+#tarteaucitronIcon #tarteaucitronManager {
+    color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px !important;
+    padding: 8px 10px 8px;
+    border: none;
+}
+
+#tarteaucitronIcon #tarteaucitronManager img {
+    width: 40px;
+    height: 40px;
+}
+
+#tarteaucitronRoot .tarteaucitronCross::before {
+    content: '\2717';
+    display: inline-block;
+    color: white;
+}
+
+#tarteaucitronRoot .tarteaucitronCheck::before {
+    content: '\2713';
+    display: inline-block;
+    color: white;
+}
+
+#tarteaucitronRoot .tarteaucitronPlus::before {
+    content: '\271b';
+    display: inline-block;
+    color: white;
+}
+
+#tarteaucitronRoot #tarteaucitronAlertBig {
+    @include m991 {
+        transform: none;
+    }
+}
+
+#tarteaucitronRoot #tarteaucitronAlertBigContent {
+    @include m991 {
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        right: 10px;
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+}
+
+.tarteaucitronIconBottomRight {
+    @include m991 {
+        bottom: 60px;
+    }
+}
+
+#tarteaucitronIcon {
+    display: none !important;
+}
+
+#tarteaucitronIcon #tarteaucitronManager img {
+    @include m991 {
+        width: 30px;
+        height: 30px;
+    }
+}

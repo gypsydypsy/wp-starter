@@ -1,0 +1,171 @@
+version: '3.9'
+
+services:
+
+  ####### 
+  apache:
+  #######
+
+    build:
+      context: ./docker/apache
+      args:
+        version: ${DOCKER_APACHE_VERSION}
+        
+    volumes:
+      - ../../htdocs:/usr/local/apache2/htdocs
+      - ./docker/nginx/ssl/:/etc/httpd/ssl
+
+    links:
+      - database
+      - php-fpm
+
+    command: >
+      sh -c '
+      sed --in-place s#CUSTOMER#${CUSTOMER}#g /usr/local/apache2/client-projet-fo.apache2 &&
+      sed --in-place s#PROJECT#${PROJECT}#g /usr/local/apache2/client-projet-fo.apache2 &&
+      sed --in-place s#DOCUMENTROOT#${DOCUMENTROOT}#g /usr/local/apache2/client-projet-fo.apache2 &&
+      sed --in-place s#APACHE_PREFIX_DOMAIN#${APACHE_PREFIX_DOMAIN}#g /usr/local/apache2/client-projet-fo.apache2 &&
+      sed --in-place s#SUFFIX_DOMAIN#${SUFFIX_DOMAIN}#g /usr/local/apache2/client-projet-fo.apache2 &&
+      yes | cp -rf /usr/local/apache2/client-projet-fo.apache2 /usr/local/apache2/conf/httpd.conf &&
+      yes | cp -rf /usr/local/wp-config.php /usr/local/apache2/htdocs/wp-config.php &&
+      httpd-foreground
+      '
+      
+    ports:
+      - "7000:443"
+
+  #######
+  php-fpm:
+  #######
+
+    build:
+      context: ./docker/php-fpm
+      args:
+        version: ${DOCKER_PHP_VERSION}
+
+    links:
+      - database
+
+    environment:
+
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_NAME: ${MYSQL_PREFIX_DATABASENAME}-${CUSTOMER}-${PROJECT}
+      WORDPRESS_DB_USER: ${MYSQL_PREFIX_USER}-${CUSTOMER}-${PROJECT}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: ${MYSQL_DB_PREFIX}
+      WORDPRESS_CONTENT_PATH: ${WORDPRESS_CONTENT_PATH}
+
+    volumes:
+      - ../../htdocs:/usr/local/apache2/htdocs
+  
+  ####### 
+  nginx:
+  #######
+
+    build:
+      context: ./docker/nginx
+      args:
+        version: ${DOCKER_NGINX_VERSION}
+
+    environment:
+
+      documentroot: /var/www/${CUSTOMER}/${PROJECT}/${DOCUMENTROOT}
+      domain: ${NGINX_PREFIX_DOMAIN}${CUSTOMER}${PROJECT}${SUFFIX_DOMAIN}
+
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites-enabled/:/etc/nginx/sites-enabled
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+      - ./docker/nginx/ssl/:/etc/nginx/ssl
+      - ./docker/nginx/mime.types/:/etc/nginx/mime.types
+      - ../../htdocs:/var/www/${CUSTOMER}/${PROJECT}/htdocs
+
+    command: >
+      sh -c '
+      sed --in-place s#CUSTOMER#${CUSTOMER}#g /etc/nginx/sites-available/client-projet.nginx &&
+      sed --in-place s#PROJECT#${PROJECT}#g /etc/nginx/sites-available/client-projet.nginx &&
+      sed --in-place s#DOCUMENTROOT#${DOCUMENTROOT}#g /etc/nginx/sites-available/client-projet.nginx &&
+      sed --in-place s#NGINX_PREFIX_DOMAIN#${NGINX_PREFIX_DOMAIN}#g /etc/nginx/sites-available/client-projet.nginx &&
+      sed --in-place s#SUFFIX_DOMAIN#${SUFFIX_DOMAIN}#g /etc/nginx/sites-available/client-projet.nginx &&
+      yes | cp -rf /etc/nginx/sites-available/client-projet.nginx /etc/nginx/sites-enabled/199-${CUSTOMER}_${PROJECT}-https.conf &&
+      /docker-entrypoint.sh nginx -g "daemon off;"
+      '
+
+    links:
+      - apache
+      - elasticsearch
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+  #######
+  database:
+  #######s
+
+    build:
+      context: ./docker/database
+      args:
+        version: ${DOCKER_DATABASE_VERSION}
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_PREFIX_DATABASENAME}-${CUSTOMER}-${PROJECT}
+      MYSQL_USER: ${MYSQL_PREFIX_USER}-${CUSTOMER}-${PROJECT}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    
+    volumes:
+      - ./docker/database/conf.d/docker.cnf:/etc/mysql/conf.d/docker.cnf
+      - ./docker/database/db_data:/var/lib/mysql
+
+    command: >
+      sh -c '
+        apt-get update &&
+        apt-get install wget -y &&
+        docker-entrypoint.sh mysqld
+      '
+
+    ports:
+       - "3306:3306"
+
+  #######
+  elasticsearch:
+  #######
+
+    build:
+      context: ./docker/elastic
+      args:
+        version: ${DOCKER_ELASTIC_VERSION}
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+
+    ports:
+      - "9200:9200"
+
+  #######
+  phpmyadmin:
+  #######
+    
+    build:
+      context: ./docker/phpmyadmin
+      args:
+        version: ${DOCKER_PHPMYADMIN_VERSION}
+
+    environment:
+      PMA_HOST: database:3306
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      UPLOAD_LIMIT: 500M
+
+    links:
+      - database
+
+    ports:
+      - "1234:80"

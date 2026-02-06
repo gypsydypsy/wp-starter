@@ -1,0 +1,102 @@
+.swiper {
+    &-slide{
+        height: auto!important;
+    }
+    .swiper-button {
+        &-prev, &-next {
+            display: block;
+            width: auto;
+            height: auto;
+            margin-top: 0;
+            color: $black;
+            &:after {
+                display: none;
+            }
+        }
+    }
+    &[data-navigation="scrollbar"] {
+        .swiper-wrapper {
+            padding-bottom: 40px;
+        }
+    }
+    &.swiper-horizontal > .swiper-scrollbar,
+    .swiper-scrollbar {
+        cursor: pointer;
+        z-index: 4;
+        width: calc(100% - 60px);
+        max-width: 360px;
+        height: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .swiper-scrollbar-drag {
+        background-color: $black;
+    }
+}
+
+.f-slider {
+    &__navigation {
+        @include flex(flex-end, center);
+        button {
+            position: static;
+            font-size: 16px;
+            &:focus-within{
+                outline: 1px solid $black;
+            }
+        }
+        &-next {
+            margin-left: 18px;
+        }
+    }
+    &__pagination {
+        position: relative;
+        bottom: inherit!important;
+        margin:20px 0;
+        @include flex(center, center, row, nowrap);
+        z-index: 9;
+        &:has(li:only-child) {
+            display: none !important;
+        }
+        span {
+            width: 14px;
+            height: 14px;
+            background-color: $white;
+            border:1.5px solid $black!important;
+            opacity: 1;
+            transition: all .2s ease-in-out;
+            margin: 0 4px!important;
+            @include m768 {
+                width: 16px;
+                height: 16px;
+                margin: 0 8px!important;
+            }
+            &.swiper-pagination-bullet-active, &:hover, &:focus-within {
+                background-color: $black;
+            }
+
+            &:focus-within {
+                outline: solid 2px $black; 
+                outline-offset: 3px;
+            }
+            &:only-child {
+                display: inline-block !important;
+            }
+        }
+    }
+    &__ctn{
+        &[data-navigation="scrollbar"]{
+            cursor: url('#{$imgPath}cursor-drag.svg') 60 60, auto;
+            .f-slider__ctn-item{
+
+            }
+        }
+        &-item {
+            @include flex(center, center, column);
+            width: 100%;
+            height: 100%;
+            > *:not(.f-imgText__ctn) {
+                width: 100%;
+            }
+        }
+    }
+}

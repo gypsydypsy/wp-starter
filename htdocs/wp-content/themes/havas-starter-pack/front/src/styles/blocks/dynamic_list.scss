@@ -1,0 +1,39 @@
+.f-news {
+    &__list {
+        @include flex(center, initial, row, wrap);
+        margin-bottom: -40px;
+        margin-left: -20px;
+        margin-right: -20px;
+
+        &[data-wrap="true"]{
+            justify-content: flex-start;
+        }
+
+        > * {
+            display: block;
+            //flex: 1 1 0;
+            width: 100%;
+            max-width: 25%;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            @include m991 {
+                flex: 1 1 auto;
+                width: 33.33%;
+                max-width: 33.33%;
+            }
+            @include m767 {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 50%;
+                max-width: 50%;
+            }
+            @include m479 {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+    }
+}

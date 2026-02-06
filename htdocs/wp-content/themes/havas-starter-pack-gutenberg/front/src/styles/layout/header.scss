@@ -1,0 +1,186 @@
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 1px #969696;
+    border-bottom: solid 1px #969696;
+    &__ctn {
+        @include flex(space-between, center);
+        @include m1199{
+            display: block;
+        }
+        &-left {
+            @include flex(flex-start, center);
+            @include m767{
+                display: block;
+            }
+        }
+        &-right {
+            @include flex(flex-end, center);
+            margin-left: -16px;
+            margin-right: -16px;
+            @include m1199{
+                margin-top: 30px;
+                justify-content: flex-start;
+            }
+            @include m767{
+                margin-top: 0;
+                flex-wrap: wrap;
+            }
+            > * {
+                margin-left: 16px;
+                margin-right: 16px;
+                @include m767{
+                    margin-top: 18px;
+                }
+            }
+        }
+    }
+    &__main {
+        &-logo {
+            img {
+                max-height: 45px;
+                width: auto;
+            }
+        }
+    }
+    &__nav {
+        margin-left: 30px;
+        max-width: 350px;
+        @include m767{
+            max-width: 100%;
+            margin-left: 0;
+            margin-top: 18px;
+        }
+        > div > ul {
+            @include flex(flex-start, center, row, wrap);
+            margin-left: -10px;
+            margin-right: -10px;
+            li {
+                @include flex(flex-start, center);
+                &.current_page_item {
+                    a {
+                        text-decoration-color: $black;
+                    }
+                }
+                &:not(:last-child) {
+                    &:after {
+                        display: inline-block;
+                        content: '.';
+                        position: relative;
+                        top: -2px;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: 10px;
+                    font-family: $fontText;
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: $black;
+                    text-decoration: underline;
+                    text-decoration-color: transparent;
+                    text-decoration-thickness: 2px;
+                    text-underline-position: under;
+                    transition: text-decoration-color .4s ease-in-out;
+                    @include m1025 {
+                        &:hover {
+                            text-decoration-color: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__search input, &__accessibility, &__languages {
+        font-family: $fontText;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    &__search {
+        @include flex(flex-start, center);
+        input {
+            display: block;
+            margin-right: 10px;
+            padding: 5px 18px;
+            border-radius: 19px;
+            background-color: #efefef;
+        }
+        button {
+            display: block;
+            @include m1025 {
+                transition: opacity .4s ease-in-out;
+                &:hover {
+                    opacity: .5;
+                }
+            }
+        }
+    }
+    &__accessibility {
+        @include flex(flex-start, center);
+        &-radio {
+            position: relative;
+            width: 39px;
+            height: 21px;
+            margin-left: 10px;
+            input {
+                cursor: pointer;
+                z-index: 2;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                &:checked + .header__accessibility-radio-ui:after {
+                    left: 21px;
+                }
+            }
+            &-ui {
+                z-index: 1;
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                background-color: $black;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 3px;
+                    border-radius: 50%;
+                    width: 15px;
+                    height: 15px;
+                    background-color: $white;
+                    transition: left .4s ease-in-out;
+                }
+            }
+        }
+    }
+    &__languages {
+        ul{
+            @include flex(flex-start, center);
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+        li {
+            @include flex(flex-start, center);
+            &:not(:last-child) {
+                &:after {
+                    display: inline-block;
+                    content: '-';
+                }
+            }
+            > * {
+                display: block;
+                padding: 5px;
+                color: #7e7e7e;
+                &.active {
+                    color: $black;
+                }
+            }
+        }
+    }
+}

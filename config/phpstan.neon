@@ -1,0 +1,15 @@
+#includes:
+#    - ../vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+
+parameters:
+  level: max
+
+  paths:
+    - ../htdocs/wp-content/themes/havas-starter-pack
+
+  bootstrapFiles:
+    - ../vendor/autoload.php
+    - ../htdocs/wp-load.php
+
+  ignoreErrors:
+    - '#Call to an undefined function#'

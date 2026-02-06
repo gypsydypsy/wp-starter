@@ -1,0 +1,12 @@
+.f-slider.single-- {
+    .f-slider {
+        &__navigation {
+            margin-bottom: 30px;
+        }
+        &__ctn{
+            &-item{
+                text-align: center;
+            }
+        }
+    }
+}

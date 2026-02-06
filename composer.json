@@ -1,0 +1,28 @@
+{
+    "name": "df/starter-pack",
+    "description": "Starter pack de la Digital Factory",
+    "type": "project",
+    "require": {
+        "szepeviktor/phpstan-wordpress": "2.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Df\\StarterPack\\": "htdocs/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sébastien Gastard",
+            "email": "sebastien.gastard@havasdigitalfactory.com"
+        }
+    ],
+    "scripts": {
+        "phpstan": "phpstan analyse -vvv --configuration=config/phpstan.neon"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpstan/phpstan": "2.1.x-dev",
+        "php-stubs/wordpress-stubs": "^6.8"
+    }
+}

@@ -1,0 +1,49 @@
+.f-keyfigures {
+    &__ctn {
+        @include flex(center, initial, row, wrap);
+        margin-bottom: -40px;
+        margin-left: -22px;
+        margin-right: -22px;
+        &-item {
+            width: 100%;
+            max-width: 25%;
+            padding-left: 22px;
+            padding-right: 22px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            @include m1199 {
+                max-width: 50%;
+            }
+            @include m767 {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+            &-img {
+                width: 100%;
+                max-width: 160px;
+                margin-bottom: 5px;
+                margin-left: auto;
+                margin-right: auto;
+                .c-img{
+                    figure {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .h3 {
+        line-height: 1.27;
+        span {
+            display: block;
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1;
+            @include m767 {
+                font-size: 50px;
+            }
+        }
+    }
+}

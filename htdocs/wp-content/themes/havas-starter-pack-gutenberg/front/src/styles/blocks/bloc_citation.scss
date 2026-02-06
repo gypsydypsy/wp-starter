@@ -1,0 +1,89 @@
+.f-quote {
+    &__ctn {
+        @include flex(initial, center);
+        margin-left: -50px;
+        margin-right: -50px;
+        @include m991 {
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        > * {
+            margin-left: 50px;
+            margin-right: 50px;
+            @include m991 {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        &-img {
+            flex: none;
+            width: 47.9%;
+            max-width: 460px;
+            @include m991 {
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 80px;
+            }
+            .c-img{
+                figure {
+                    display: block;
+                    figcaption{
+                        @include m991 {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        &-text {
+            width: calc(100% - 100px);
+            @include m991 {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            &-quote {
+                z-index: 1;
+                position: relative;
+                font-family: $fontText;
+                font-size: 30px;
+                font-weight: 800;
+                font-style: italic;
+                line-height: 1.27;
+                &:before, &:after {
+                    z-index: -1;
+                    display: block;
+                    position: absolute;
+                    font-family: $fontText;
+                    font-size: 150px;
+                    line-height: 80px;
+                    font-weight: 800;
+                    font-style: italic;
+                    color: lighten($black, 80%);
+                }
+                &:before {
+                    content: '“';
+                    top: -14px;
+                    left: -60px;
+                }
+                &:after {
+                    content: '”';
+                    bottom: -75px;
+                    right: 5px;
+                }
+            }
+            &-author {
+                margin-top: 50px;
+                font-family: $fontText;
+                font-size: 20px;
+                font-weight: 800;
+                span {
+                    display: block;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

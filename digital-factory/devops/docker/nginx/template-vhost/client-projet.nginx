@@ -1,0 +1,68 @@
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        ssl_certificate     /etc/nginx/ssl/mondocker.fr/fullchain.pem;
+        ssl_certificate_key /etc/nginx/ssl/mondocker.fr/privkey.pem;
+
+        server_name NGINX_PREFIX_DOMAIN-CUSTOMER-PROJECT.SUFFIX_DOMAIN;
+
+        # deny all . directories/files in general (including .htaccess, etc)
+        location ~ /\. {
+        deny all;
+        }
+
+        root /var/www/CUSTOMER/PROJECT/DOCUMENTROOT;
+
+        location / {
+                #auth_basic "CUSTOMER RESTRICTED ACCESS";
+                #auth_basic_user_file /var/www/CUSTOMER/PROJECT/etc/secure/.htpassword;
+                #try_files $uri $uri/index.html =404;
+                #try_files $uri /index.html =404;
+                proxy_pass https://apache:443;
+
+        }
+
+        location /esearch {
+                proxy_pass http://elasticsearch:9200;
+                rewrite ^/esearch/(.*) /$1 break;
+        }
+
+        # Fichiers statiques IMAGES/FONTS
+        location ~* ^.+\.(jpg|jpeg|png|gif|eot|ttf|woff|woff2|otf|svg|less|psd|htc|pot|mo|ico)$ {
+
+                #1#no caching
+                root /var/www/CUSTOMER/PROJECT/DOCUMENTROOT;
+
+                #2#nginx caching
+                #add_header X-Cache-Status $upstream_cache_status;
+                #proxy_cache my_cache;
+                #proxy_cache_use_stale error timeout http_500 http_502 http_503 http_504;
+                #proxy_cache_lock on;
+                #proxy_pass http://NGINX_PREFIX_DOMAIN-CUSTOMER-PROJECT.SUFFIX_DOMAIN:7000;
+
+                #3#varnish caching
+                #proxy_pass http://NGINX_PREFIX_DOMAIN-CUSTOMER-PROJECT.SUFFIX_DOMAIN:8080;
+
+        }
+        
+        # Fichiers statiques VIDEO/ARCHIVES
+        location ~* ^.+\.(swf|flv|mp4|mp3|f4v|mov|avi|wmv|m4v|mkv|webm|zip|tgz|gz|bak|csv|xls|xlsx|doc|docx|ppt|pptx|xap)$ {
+                #1#no caching
+                root /var/www/CUSTOMER/PROJECT/DOCUMENTROOT;
+        }
+
+        # Fichiers statiques JSON
+        location ~* ^.+\.(json)$ {
+                #1#no caching
+                root /var/www/CUSTOMER/PROJECT/DOCUMENTROOT;
+
+        }
+
+        error_page  404  /index.php;
+}
+#
+server {
+        listen 80;
+        server_name NGINX_PREFIX_DOMAIN-CUSTOMER-PROJECT.SUFFIX_DOMAIN;
+        rewrite ^(.*) https://NGINX_PREFIX_DOMAIN-CUSTOMER-PROJECT.SUFFIX_DOMAIN$1 permanent;
+}

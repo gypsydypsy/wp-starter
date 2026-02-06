@@ -1,0 +1,19 @@
+.f-slider.textImg-- {
+    .f-slider {
+        &__navigation {
+            @include m992 {
+                margin-bottom: -25px;
+            }
+            &.reverse-- {
+                justify-content: flex-start;
+            }
+        }
+        &__ctn-item {
+            text-align: left;
+        }
+    }
+    .f-imgText__ctn-text {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}

@@ -1,0 +1,35 @@
+.c-img {
+    text-align: center;
+    &__radius {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+    figure {
+        display: inline-block;
+        figcaption {
+            margin-top: 10px;
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.88;
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,1 @@
+{"translation-revision-date":"2024-08-15 17:53:40+0000","generator":"GlotPress\/4.0.0-rc.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n > 1;","lang":"fr"},"Estimated cost: %1$s":["Co\u00fbt estim\u00e9 : %1$s"]}},"comment":{"reference":"app\/editor\/blocks\/how-to\/components\/EstimatedCost.js"}}

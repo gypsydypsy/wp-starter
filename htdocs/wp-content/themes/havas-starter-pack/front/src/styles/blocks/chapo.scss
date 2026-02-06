@@ -1,0 +1,13 @@
+.f-chapo{
+    &__ctn{
+        font-family: $fontText;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.27;
+        @include m767{
+            font-size: 25px;
+            font-weight: 500;
+            line-height: 1.32;
+        }
+    }
+}
